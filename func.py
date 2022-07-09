@@ -99,11 +99,15 @@ class Funcao:
 
                     case '1':
                         novonome = input('Digite o novo valor do campo Nome:\n')
+
                         novonome = novonome.strip(' ')
+
                         while not novonome.isalpha():
                             novonome = input('\nNúmeros não são aceitos, digite novamente:\n')
                         while len(novonome) > 20:
                             novonome = input('\nOs nomes tem de ser de no máximo 20 caracteres, digite novamente:\n')
+
+                        novonome = novonome.capitalize()
 
                         comando = f'UPDATE clientes SET nome = "{novonome}" WHERE id_cli = "{idselecionado}"'
                         cursor.execute(comando)
